@@ -1,0 +1,59 @@
+{
+  "cSpell.words": [
+    "clsx",
+    "hookform",
+    "lucide",
+    "nextjs",
+    "prismadb",
+    "Signup",
+    "tailwindcss",
+    "trpc",
+    "zustand"
+  ],
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          // --- ReactTypescript ---
+          "storage.type.function.tsx",
+          "keyword.control.flow.tsx",
+          "variable.parameter.tsx",
+          "keyword.control.import.tsx",
+          "keyword.control.from.tsx",
+          "entity.other.attribute-name.tsx",
+          "meta.export.default.tsx",
+          "meta.type.annotation.tsx",
+          "keyword.control.conditional.tsx",
+          "meta.embedded.expression.tsx",
+          "storage.type.tsx",
+          "storage.type.type.tsx",
+          "storage.modifier.async.tsx",
+          "keyword.control.trycatch.tsx",
+          // --- TypeScript ---
+          "storage.type.function.ts",
+          "keyword.control.flow.ts",
+          "variable.parameter.ts",
+          "keyword.control.import.ts",
+          "keyword.control.from.ts",
+          "entity.other.attribute-name.ts",
+          "meta.export.default.ts",
+          "meta.type.annotation.ts",
+          "keyword.control.conditional.ts",
+          "meta.embedded.expression.ts",
+          "storage.type.ts",
+          "storage.type.type.tx",
+          "entity.name.function.member",
+          "keyword.control.export.ts",
+          "storage.modifier.async.ts",
+          "keyword.control.trycatch.ts",
+          // --- Prisma ---
+          "storage.type.config.prisma",
+          "storage.type.model.prisma"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ],
+  },
+}
