@@ -29,6 +29,8 @@
           "storage.type.type.tsx",
           "storage.modifier.async.tsx",
           "keyword.control.trycatch.tsx",
+          "keyword.operator.expression.typeof.tsx",
+
           // --- TypeScript ---
           "storage.type.function.ts",
           "keyword.control.flow.ts",
@@ -46,6 +48,7 @@
           "keyword.control.export.ts",
           "storage.modifier.async.ts",
           "keyword.control.trycatch.ts",
+          
           // --- Prisma ---
           "storage.type.config.prisma",
           "storage.type.model.prisma"

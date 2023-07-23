@@ -1,6 +1,7 @@
 "use client";
 
 import AlertModal from "@/components/modals/alert-modal";
+import ApiAlert from "@/components/ui/api-alert";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -13,6 +14,7 @@ import {
 import Heading from "@/components/ui/heading";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import useOrigin from "@/hooks/use-origin";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Store } from "@prisma/client";
 import axios from "axios";
@@ -40,9 +42,11 @@ function SettingsForm({ initialData }: SettingsFormProps) {
   });
 
   const isLoading = form.formState.isSubmitting;
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const { storeId } = useParams();
   const router = useRouter();
+  const origin = useOrigin();
 
   const onSubmit = async (data: SettingsFormValues) => {
     try {
@@ -56,9 +60,16 @@ function SettingsForm({ initialData }: SettingsFormProps) {
 
   const onDelete = async () => {
     try {
-      // TODO: Pending to implement the functionality
+      setLoading(true);
+      await axios.delete(`/api/stores/${storeId}`);
+      router.refresh();
+      router.push("/");
+      toast.success("Store deleted.");
     } catch (err) {
       toast.error("Make sure you removed all products and categories first.");
+    } finally {
+      setLoading(false);
+      setOpen(false);
     }
   };
 
@@ -67,9 +78,10 @@ function SettingsForm({ initialData }: SettingsFormProps) {
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
-        onConfirm={() => {}}
-        loading={isLoading}
+        onConfirm={onDelete}
+        loading={loading}
       />
+
       <div className="flex items-center justify-between">
         <Heading title="Settings" description="Manage store preferences" />
         <Button variant="destructive" size="sm" onClick={() => setOpen(true)}>
@@ -103,6 +115,12 @@ function SettingsForm({ initialData }: SettingsFormProps) {
           </Button>
         </form>
       </Form>
+      <Separator />
+      <ApiAlert
+        title="NEXT_PUBLIC_API_URL"
+        description={`${origin}/api/${storeId}`}
+        variant="public"
+      />
     </>
   );
 }
