@@ -8,6 +8,7 @@
     "prismadb",
     "Signup",
     "tailwindcss",
+    "tanstack",
     "trpc",
     "zustand"
   ],
@@ -23,6 +24,7 @@
           "keyword.control.from.tsx",
           "entity.other.attribute-name.tsx",
           "meta.export.default.tsx",
+          "keyword.control.export.tsx",
           "meta.type.annotation.tsx",
           "keyword.control.conditional.tsx",
           "meta.embedded.expression.tsx",
@@ -31,6 +33,7 @@
           "storage.modifier.async.tsx",
           "keyword.control.trycatch.tsx",
           "keyword.operator.expression.typeof.tsx",
+          "storage.type.interface.tsx",
 
           // --- TypeScript ---
           "storage.type.function.ts",
