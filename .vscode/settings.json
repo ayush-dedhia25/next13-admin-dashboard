@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "cloudinary",
     "clsx",
     "hookform",
     "lucide",
@@ -48,6 +49,7 @@
           "keyword.control.export.ts",
           "storage.modifier.async.ts",
           "keyword.control.trycatch.ts",
+          "variable.other.property.ts",
           
           // --- Prisma ---
           "storage.type.config.prisma",
@@ -59,4 +61,7 @@
       }
     ],
   },
+  "WillLuke.nextjs.addTypesOnSave": true,
+  "WillLuke.nextjs.hasPrompted": true,
+  "editor.lineHeight": 1.7
 }
