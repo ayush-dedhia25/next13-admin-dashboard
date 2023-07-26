@@ -1,6 +1,8 @@
-import prismadb from "@/lib/prismadb";
-import { UserButton, auth } from "@clerk/nextjs";
+import { auth, UserButton } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+
+import prismadb from "@/lib/prismadb";
+
 import MainNav from "./main-nav";
 import StoreSwitcher from "./store-switcher";
 

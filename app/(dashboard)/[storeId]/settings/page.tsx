@@ -1,6 +1,8 @@
-import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+
+import prismadb from "@/lib/prismadb";
+
 import SettingsForm from "./components/settings-form";
 
 type SettingsPageProps = {

@@ -1,11 +1,13 @@
 "use client";
 
-import { useStoreModal } from "@/hooks/use-store-modal";
-import { cn } from "@/lib/utils";
 import { Store } from "@prisma/client";
 import { Check, ChevronsUpDown, PlusCircle, Store as StoreIcon } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
+
+import { useStoreModal } from "@/hooks/use-store-modal";
+import { cn } from "@/lib/utils";
+
 import { Button } from "./ui/button";
 import {
   Command,
