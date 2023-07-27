@@ -53,18 +53,24 @@
           "storage.modifier.async.ts",
           "keyword.control.trycatch.ts",
           "variable.other.property.ts",
-          
+          "new.expr.ts",
+
           // --- Prisma ---
           "storage.type.config.prisma",
-          "storage.type.model.prisma"
+          "storage.type.model.prisma",
+          "support.type.primitive.prisma",
+          "variable.language.relations.prisma"
         ],
         "settings": {
           "fontStyle": "italic"
         }
       }
-    ],
+    ]
   },
   "WillLuke.nextjs.addTypesOnSave": true,
   "WillLuke.nextjs.hasPrompted": true,
-  "editor.lineHeight": 1.7
+  "editor.lineHeight": 1.7,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
