@@ -16,15 +16,15 @@ export async function POST(
     }
 
     if (!name) {
-      return new NextResponse("Name is required", { status: 400 });
+      return new NextResponse("Color name is required", { status: 400 });
     }
 
     if (!value) {
-      return new NextResponse("Size value is required", { status: 400 });
+      return new NextResponse("Color value is required", { status: 400 });
     }
 
     if (!params.storeId) {
-      return new NextResponse("Store id is required", { status: 400 });
+      return new NextResponse("Store Id is required", { status: 400 });
     }
 
     const storeByUserId = await prismadb.store.findFirst({
@@ -35,13 +35,13 @@ export async function POST(
       return new NextResponse("Unauthorized", { status: 403 });
     }
 
-    const size = await prismadb.size.create({
+    const color = await prismadb.color.create({
       data: { name, value, storeId: params.storeId },
     });
 
-    return NextResponse.json(size);
+    return NextResponse.json(color);
   } catch (err) {
-    console.log("[SIZE_POST]", err);
+    console.log("[COLORS_POST]", err);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
@@ -55,13 +55,13 @@ export async function GET(
       return new NextResponse("Store Id is required", { status: 400 });
     }
 
-    const sizes = await prismadb.size.findMany({
+    const colors = await prismadb.color.findMany({
       where: { storeId: params.storeId },
     });
 
-    return NextResponse.json(sizes);
+    return NextResponse.json(colors);
   } catch (err) {
-    console.log("[SIZES_GET]", err);
+    console.log("[COLORS_GET]", err);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

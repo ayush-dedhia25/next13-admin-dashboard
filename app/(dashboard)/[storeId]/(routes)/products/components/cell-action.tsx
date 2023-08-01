@@ -16,10 +16,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { SizeColumn } from "./columns";
+import { ProductColumn } from "./columns";
 
 type CellActionProps = {
-  data: SizeColumn;
+  data: ProductColumn;
 };
 
 function CellAction({ data }: CellActionProps) {
@@ -31,17 +31,17 @@ function CellAction({ data }: CellActionProps) {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("Size Id copied to the clipboard.");
+    toast.success("Product Id copied to the clipboard.");
   };
 
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
+      await axios.delete(`/api/${params.storeId}/products/${data.id}`);
       router.refresh();
-      toast.success("Size deleted.");
+      toast.success("Product deleted.");
     } catch (err) {
-      toast.error("Make sure you removed all products using this size first.");
+      toast.error("Something went wrong :(");
     } finally {
       setLoading(false);
       setOpen(false);
@@ -71,7 +71,7 @@ function CellAction({ data }: CellActionProps) {
             Copy Id
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}
+            onClick={() => router.push(`/${params.storeId}/products/${data.id}`)}
           >
             <Edit className="me-2 w-4 h-4" />
             Update
