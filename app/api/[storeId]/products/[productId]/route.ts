@@ -42,7 +42,11 @@ export async function PATCH(
     } = await req.json();
 
     if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 403 });
+    }
+
+    if (!params.productId) {
+      return new NextResponse("Product Id is required", { status: 400 });
     }
 
     if (!name) {
@@ -67,10 +71,6 @@ export async function PATCH(
 
     if (!colorId) {
       return new NextResponse("Color Id is required", { status: 400 });
-    }
-
-    if (!params.productId) {
-      return new NextResponse("Product Id is required", { status: 400 });
     }
 
     const storeByUserId = await prismadb.store.findFirst({

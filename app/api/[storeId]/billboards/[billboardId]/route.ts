@@ -1,6 +1,7 @@
-import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
+
+import prismadb from "@/lib/prismadb";
 
 export async function GET(
   req: Request,
@@ -12,7 +13,9 @@ export async function GET(
     }
 
     const billboard = await prismadb.billboard.findUnique({
-      where: { id: params.billboardId },
+      where: {
+        id: params.billboardId,
+      },
     });
 
     return NextResponse.json(billboard);
@@ -47,7 +50,10 @@ export async function PATCH(
     }
 
     const storeByUserId = await prismadb.store.findFirst({
-      where: { id: params.storeId, userId },
+      where: {
+        id: params.storeId,
+        userId,
+      },
     });
 
     if (!storeByUserId) {
@@ -55,7 +61,9 @@ export async function PATCH(
     }
 
     const billboard = await prismadb.billboard.updateMany({
-      where: { id: params.billboardId },
+      where: {
+        id: params.billboardId,
+      },
       data: { label, imageUrl },
     });
 
@@ -86,7 +94,10 @@ export async function DELETE(
     }
 
     const storeByUserId = await prismadb.store.findFirst({
-      where: { id: params.storeId, userId },
+      where: {
+        id: params.storeId,
+        userId,
+      },
     });
 
     if (!storeByUserId) {
@@ -94,7 +105,9 @@ export async function DELETE(
     }
 
     const billboard = await prismadb.billboard.deleteMany({
-      where: { id: params.billboardId },
+      where: {
+        id: params.billboardId,
+      },
     });
 
     return NextResponse.json(billboard);

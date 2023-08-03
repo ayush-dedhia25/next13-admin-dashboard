@@ -94,7 +94,7 @@ function ProductForm({ initialData, categories, colors, sizes }: ProductFormProp
     try {
       if (initialData) {
         await axios.patch(
-          `/api/${params.storeId}/products/${params.billboardId}`,
+          `/api/${params.storeId}/products/${params.productId}`,
           data
         );
       } else {

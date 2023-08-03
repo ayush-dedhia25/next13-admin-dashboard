@@ -28,7 +28,10 @@ export async function POST(
     }
 
     const storeByUserId = await prismadb.store.findFirst({
-      where: { id: params.storeId, userId },
+      where: {
+        id: params.storeId,
+        userId,
+      },
     });
 
     if (!storeByUserId) {
@@ -36,7 +39,11 @@ export async function POST(
     }
 
     const billboard = await prismadb.billboard.create({
-      data: { label, imageUrl, storeId: params.storeId },
+      data: {
+        label,
+        imageUrl,
+        storeId: params.storeId,
+      },
     });
 
     return NextResponse.json(billboard);
@@ -56,7 +63,9 @@ export async function GET(
     }
 
     const billboards = await prismadb.billboard.findMany({
-      where: { storeId: params.storeId },
+      where: {
+        storeId: params.storeId,
+      },
     });
 
     return NextResponse.json(billboards);
