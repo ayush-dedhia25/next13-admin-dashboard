@@ -28,7 +28,7 @@ function AlertModal({ isOpen, loading, onClose, onConfirm }: AlertModalProps) {
       isOpen={isOpen}
       onClose={onClose}
     >
-      <div className="pt-6 space-x-2 flex items-center justify-end w-full">
+      <div className="flex items-center justify-end w-full pt-6 space-x-2">
         <Button variant="outline" onClick={onClose} disabled={loading}>
           Cancel
         </Button>
