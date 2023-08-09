@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import ModalProvider from "@/providers/modal-provider";
+import ThemeProvider from "@/providers/theme-provider";
 import ToasterProvider from "@/providers/toast-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,9 +20,11 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <ModalProvider />
-          <ToasterProvider />
-          {children}
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            <ModalProvider />
+            <ToasterProvider />
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
